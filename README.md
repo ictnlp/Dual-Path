@@ -15,8 +15,8 @@ Our method is implemented based on the open-source toolkit [Fairseq](https://git
 - Install fairseq:
 
   ```bash
-  git clone https://github.com/ictnlp/Dual_Paths.git
-  cd Dual_Paths
+  git clone https://github.com/ictnlp/Dual-Paths.git
+  cd Dual-Paths
   pip install --editable ./
   ```
 
@@ -33,9 +33,9 @@ Then, we process the data into the fairseq format:
 ```bash
 src = SOURCE_LANGUAGE
 tgt = TARGET_LANGUAGE
-train_data = DIR_TO_TRAIN_DATA
-vaild_data = DIR_TO_VALID_DATA
-test_data = DIR_TO_TEST_DATA
+train_data = PATH_TO_TRAIN_DATA
+vaild_data = PATH_TO_VALID_DATA
+test_data = PATH_TO_TEST_DATA
 data=PATH_TO_DATA
 
 fairseq-preprocess --source-lang ${src} --target-lang ${tgt} \
@@ -93,7 +93,7 @@ Evaluate the model with the following command:
 export CUDA_VISIBLE_DEVICES=0
 data=PATH_TO_DATA
 modelfile=PATH_TO_SAVE_MODEL
-ref_dir=PATH_TO_REFERENCE
+ref=PATH_TO_REFERENCE
 
 # average last 5 checkpoints
 python scripts/average_checkpoints.py --inputs ${modelfile} --num-update-checkpoints 5 --output ${modelfile}/average-model.pt 
@@ -107,7 +107,7 @@ python fairseq_cli/generate.py ${data} \
     --remove-bpe > pred.out
 
 grep ^H pred.out | cut -f1,3- | cut -c3- | sort -k1n | cut -f2- > pred.translation
-multi-bleu.perl -lc ${ref_dir} < pred.translation
+multi-bleu.perl -lc ${ref} < pred.translation
 ```
 
 
