@@ -1,6 +1,6 @@
 # Modeling Dual Read/Write Paths for Simultaneous Machine Translation
 
-Source code for our ACL 2022 paper "Modeling Dual Read/Write Paths for Simultaneous Machine Translation"
+Source code for our ACL 2022 paper "Modeling Dual Read/Write Paths for Simultaneous Machine Translation" (PDF)
 
 Our method is implemented based on the open-source toolkit [Fairseq](https://github.com/pytorch/fairseq).
 
@@ -80,6 +80,7 @@ python train.py  --ddp-backend=no_c10d ${data} --arch transformer_monotonic_iwsl
     --latency-weight-avg  ${lambda} \
     --noise-var 1.5 \
     --left-pad-source \
+    --dual-weight 1.0 \
     --save-dir ${modelfile} \
     --max-tokens 2400 --update-freq 4
 ```
