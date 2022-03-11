@@ -2,7 +2,7 @@
 
 Source code for our ACL 2022 paper "Modeling Dual Read/Write Paths for Simultaneous Machine Translation"
 
-Our method is implemented based on the open-source toolkit [Fairseq](https://github.com/pytorch/fairseq). 
+Our method is implemented based on the open-source toolkit [Fairseq](https://github.com/pytorch/fairseq).
 
 
 
@@ -15,8 +15,8 @@ Our method is implemented based on the open-source toolkit [Fairseq](https://git
 - Install fairseq:
 
   ```bash
-  git clone https://github.com/ictnlp/Dual-Paths.git
-  cd Dual-Paths
+  git clone https://github.com/ictnlp/Dual_Paths.git
+  cd Dual_Paths
   pip install --editable ./
   ```
 
@@ -49,9 +49,9 @@ fairseq-preprocess --source-lang ${SRC} --target-lang ${TGT} \
 
 Train the Dual Paths SiMT with the following command:
 
-- For IWSLT15 English-Vietnamese: we set <u>*latency weight*</u> = 0.01, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5.
-- For WMT15 German-English: we set <u>*latency weight*</u> = 0.1, 0.2, 0.25, 0.3, 0.4.
-- <u>*dual weight*</u> is set to 1.0 for 'Dual Paths', and set to 0.0 for 'Single Path'.
+- For IWSLT15 English-Vietnamese: we set ***latency weight*** = 0.01, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5.
+- For WMT15 German-English: we set ***latency weight*** = 0.1, 0.2, 0.25, 0.3, 0.4.
+- ***dual weight*** is set to 1.0 for 'Dual Paths', and set to 0.0 for 'Single Path'.
 
 ```bash
 export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
@@ -115,13 +115,13 @@ multi-bleu.perl -lc ${ref_dir} < pred.translation
 
 The numerical results on WMT15 German-to-English:
 
-| latency weight |  AP  |  AL   |  DAL  | BLEU  |
-| :------------: | :--: | :---: | :---: | :---: |
-|      0.4       | 0.60 | 2.80  | 4.75  | 26.21 |
-|      0.3       | 0.62 | 3.19  | 5.40  | 27.04 |
-|      0.25      | 0.65 | 4.02  | 6.65  | 28.14 |
-|      0.2       | 0.75 | 7.69  | 11.51 | 29.23 |
-|      0.1       | 0.85 | 13.50 | 17.59 | 30.10 |
+| **latency weight** | **AP** | **AL** | **DAL** | **BLEU** |
+| :----------------: | :----: | :----: | :-----: | :------: |
+|        0.4         |  0.60  |  2.80  |  4.75   |  26.21   |
+|        0.3         |  0.62  |  3.19  |  5.40   |  27.04   |
+|        0.25        |  0.65  |  4.02  |  6.65   |  28.14   |
+|        0.2         |  0.75  |  7.69  |  11.51  |  29.23   |
+|        0.1         |  0.85  | 13.50  |  17.59  |  30.10   |
 
 More results please refer to the paper.
 
