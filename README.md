@@ -38,7 +38,7 @@ vaild_data = DIR_TO_VALID_DATA
 test_data = DIR_TO_TEST_DATA
 data=PATH_TO_DATA
 
-fairseq-preprocess --source-lang ${SRC} --target-lang ${TGT} \
+fairseq-preprocess --source-lang ${src} --target-lang ${tgt} \
     --trainpref ${train_data} --validpref ${vaild_data} \
     --testpref ${test_data}\
     --destdir ${data} \
