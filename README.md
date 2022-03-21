@@ -15,8 +15,8 @@ Our method is implemented based on the open-source toolkit [Fairseq](https://git
 - Install fairseq:
 
   ```bash
-  git clone https://github.com/ictnlp/Dual-Paths.git
-  cd Dual-Paths
+  git clone https://github.com/ictnlp/Dual-Path.git
+  cd Dual-Path
   pip install --editable ./
   ```
 
