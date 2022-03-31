@@ -1,10 +1,11 @@
-src = SOURCE_LANGUAGE
-tgt = TARGET_LANGUAGE
-train_data = DIR_TO_TRAIN_DATA
-vaild_data = DIR_TO_VALID_DATA
-test_data = DIR_TO_TEST_DATA
+src=SOURCE_LANGUAGE
+tgt=TARGET_LANGUAGE
+train_data=DIR_TO_TRAIN_DATA
+vaild_data=DIR_TO_VALID_DATA
+test_data=DIR_TO_TEST_DATA
 data=PATH_TO_DATA
 
+# add --joined-dictionary for WMT15 German-English
 fairseq-preprocess --source-lang ${SRC} --target-lang ${TGT} \
     --trainpref ${train_data} --validpref ${vaild_data} \
     --testpref ${test_data}\
